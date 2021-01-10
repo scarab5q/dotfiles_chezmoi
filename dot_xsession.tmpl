@@ -1,15 +1,14 @@
+{{- if  ne .chezmoi.osRelease.id "nixos"  }}
 picom
-
-~/scripts/screen_setup.sh
-
-volumeicon &
-
 nm-applet &
-
 dunst -config ~/.config/dunst/dunstrc &
-
 xclip &
+volumeicon &
+{{ end }}
 
+{{- if ne .chezmoi.hostname "nix-laptop-box" }}
+~/scripts/screen_setup.sh
 wal -i ~/google_drive/Wallpaper/
+{{- end}}
 
-insync start  &
+insync start  & 

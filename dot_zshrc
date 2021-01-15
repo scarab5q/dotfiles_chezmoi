@@ -73,6 +73,7 @@ zstyle ':fzf-tab:complete:_zlua:*' query-string input
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
 zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
+zstyle ':fzf-tab:complete:chezmoi:argument-edit' fd $(chezmoi source-path) -t f
 zstyle ":completion:*:git-checkout:*" sort false
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -87,7 +88,7 @@ zinit ice lucid wait'0c' multisrc"shell/{completion,key-bindings}.zsh" id-as"jun
 zinit light junegunn/fzf
 # FZF-TAB
 zinit ice wait"1" lucid
-zinit light Aloxaf/fzf-tab
+# zinit light Aloxaf/fzf-tab
 # SYNTAX HIGHLIGHTING
 zinit ice wait"0c" lucid atinit"zpcompinit;zpcdreplay"
 # zinit light zdharma/fast-syntax-highlighting
@@ -273,6 +274,7 @@ source $ZSH_MISC/zsh_bindings
 source $ZSH_MISC/zsh_styles
 source $ZSH_MISC/zsh_path
 source $ZSH_MISC/zsh_nnn
+source $ZSH_MISC/completions/*
 export EDITOR="nvim"                  # $EDITOR opens in terminal
 export npm_config_prefix=~/.node_modules
 export SCRIPTS="/home/jack/scripts"

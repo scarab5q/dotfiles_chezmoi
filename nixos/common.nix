@@ -68,19 +68,27 @@ in {
     useXkbConfig = true;
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken=true;
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball { config = config.nixpkgs.config; };
-      nur = import (builtins.fetchTarball
-        "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-          inherit pkgs;
-        };
-    };
-    chromium = {
-      # enablePepperFlash = true;
-      enableWideVine = true;
+  nixpkgs={
+    overlays =[
+      (import (builtins.fetchTarball {
+              url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      }))
+
+    ];
+    config = {
+      allowUnfree = true;
+      allowBroken=true;
+      packageOverrides = pkgs: {
+        unstable = import unstableTarball { config = config.nixpkgs.config; };
+        nur = import (builtins.fetchTarball
+          "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+            inherit pkgs;
+          };
+      };
+      chromium = {
+        # enablePepperFlash = true;
+        enableWideVine = true;
+      };
     };
   };
   # Set your time zone.
@@ -199,7 +207,8 @@ in {
       polybar
       lemonbar
       taskwarrior
-      neovim
+      neovim-nightly
+      intel-ocl
       alacritty
       termite
       kitty
@@ -285,6 +294,7 @@ in {
       font-awesome-ttf
       siji
       fira-code
+      gnome3.adwaita-icon-theme
       fira-code-symbols
       nerdfonts
     ];
@@ -518,7 +528,7 @@ in {
   programs = { 
     light = { enable = true; };
     nm-applet = { enable = true; };
-
+    dconf = { enable = true; };
   };
 
   # This value determines the NixOS release with which your system is to be

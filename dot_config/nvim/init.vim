@@ -1,15 +1,17 @@
-if empty(glob("~/.vim/autoload/plug.vim"))
-  execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-endif
+lua require 'init'
 
-if empty(glob("~/.config/nvim/autoload/initmd.vim"))
-  execute '!curl -fLo ~/.config/nvim/autoload/initmd.vim --create-dirs https://raw.githubusercontent.com/initmd/init.md/master/initmd.vim'
-endif
+" if empty(glob("~/.vim/autoload/plug.vim"))
+"   execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" endif
 
-if empty(glob("~/.config/nvim/autoload/map.vim"))
-    execute '!curl -fLo ~/.config/nvim/autoload/map.vim --create-dirs https://raw.githubusercontent.com/cometsong/vimfiles/7170444d682a7a8ef9dc9986d5374090e7122375/vim/autoload/map.vim'
-    echo "installed mapping script"
-endif
+" if empty(glob("~/.config/nvim/autoload/initmd.vim"))
+"   execute '!curl -fLo ~/.config/nvim/autoload/initmd.vim --create-dirs https://raw.githubusercontent.com/initmd/init.md/master/initmd.vim'
+" endif
+
+" if empty(glob("~/.config/nvim/autoload/map.vim"))
+"     execute '!curl -fLo ~/.config/nvim/autoload/map.vim --create-dirs https://raw.githubusercontent.com/cometsong/vimfiles/7170444d682a7a8ef9dc9986d5374090e7122375/vim/autoload/map.vim'
+"     echo \"installed mapping script"
+" endif
 
 set runtimepath+=~/.vim,~/.vim/after
 set packpath+=~/.vim

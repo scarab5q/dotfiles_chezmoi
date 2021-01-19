@@ -24,7 +24,16 @@ local  plugins = {}
 
 return require('packer').startup(function()
 
-  use {'wbthomason/packer.nvim', opt = true}
+  -- {{{ telescope
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
+    -- }}}
+    -- {{{ packer.nvim
+    use {'wbthomason/packer.nvim', opt = true}
+    -- }}}
+  use 'neovim/nvim-lspconfig'
   use 'Shougo/defx.nvim'
   use 'roxma/nvim-yarp'
   use 'roxma/vim-hug-neovim-rpc'
@@ -35,27 +44,27 @@ return require('packer').startup(function()
   use 'https://github.com/kshenoy/vim-signature'
   --use 'zxqfl/tabnine-vim'
   use 'tpope/vim-repeat'
-  use 't9md/vim-choosewin' 
+  -- use 't9md/vim-choosewin' 
   use 'reedes/vim-pencil' -- Super-powered writing things
-  use 'tpope/vim-abolish' -- Fancy abbreviation replacements
-  use 'junegunn/limelight.vim' -- Highlights only active paragraph
+  -- use 'tpope/vim-abolish' -- Fancy abbreviation replacements
+  -- use 'junegunn/limelight.vim' -- Highlights only active paragraph
   use 'junegunn/goyo.vim' -- Full screen writing mode
   use 'reedes/vim-lexical' -- Better spellcheck mappings
   use 'reedes/vim-litecorrect' -- Better autocorrections
   use 'reedes/vim-textobj-sentence' -- Treat sentences as text objects
-  use 'reedes/vim-wordy' -- Weasel words and passive voice
+  -- use 'reedes/vim-wordy' -- Weasel words and passive voice
 
 
   -- use { 'challenger-deep-theme/vim',  as = 'challenger-deep' }
-  use 'vimwiki/vimwiki'
+  -- use 'vimwiki/vimwiki'
   use 'christoomey/vim-tmux-navigator'
-  use 'fmcchrish/nnn.vim'
+  -- use 'fmcchrish/nnn.vim'
   -- use 'mhinz/vim-startify'
-  use 'puremourning/vimspector'
+  -- use 'puremourning/vimspector'
   -- use 'Shougo/neco-vim'
   -- use 'neoclide/coc-neco'
-  use 'dylanaraps/wal.vim'
-  use 'MattesGroeger/vim-bookmarks'
+  -- use 'dylanaraps/wal.vim'
+  -- use 'MattesGroeger/vim-bookmarks'
   -- use 'rust-lang/rust.vim'
 
   -- JavaScript {{{
@@ -75,7 +84,7 @@ return require('packer').startup(function()
   use { 'plasticboy/vim-markdown', ft = 'markdown' }
   use 'editorconfig/editorconfig-vim'
 
-  use 'norcalli/nvim_utils'
+  -- use 'norcalli/nvim_utils'
   use 'ryanoasis/vim-devicons'
   use 'tpope/vim-fugitive'
   use 'terryma/vim-multiple-cursors'
@@ -83,6 +92,7 @@ return require('packer').startup(function()
   use 'rogual/neovim-dot-app'
   use 'lucc/nvimpager'
   use 'alvan/vim-closetag'
+  use 'tpope/vim-vinegar'
   use 'Shougo/denite.nvim'
   use 'gioele/vim-autoswap'
   use 'osyo-manga/vim-anzu'
@@ -119,7 +129,6 @@ return require('packer').startup(function()
   use 'easymotion/vim-easymotion'
   use {'tpope/vim-endwise', ft = { 'sh', 'bash', 'zsh', 'vim', 'markdown' }}
   use {'liuchengxu/vim-which-key', cmd =  {'WhichKey', 'WhichKey!'}  }
-  use 'junegunn/goyo.vim'
 
   -- clojure
   use 'tpope/vim-fireplace'

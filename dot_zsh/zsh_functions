@@ -10,6 +10,23 @@
 
 # fm() f "$@" --max-depth 1
 
+brightnessup() {
+	if [ -z $1 ]
+	then
+		light -A 5
+	else 
+		light -A $1
+	fi
+}
+
+brightnessdown() {
+	if [ -z $1 ]
+	then
+		light -U 5
+	else 
+		light -U $1
+	fi
+}
 
 volumeup() {
    pactl set-sink-volume 0 +2% # 1 is the device (could change)
@@ -28,14 +45,25 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-csp () {
-  chezmoi source-path
+ccd () {
+  cd $(chezmoi source-path)
 }
 
 cef() {
   file=$(chezmoi managed -i files | sed "s/.*chezmoi//g" |fzf )
   if [ -n ${file+x} ]; then 
     chezmoi edit $file
+    echo "do you want to chezmoi apply?\ntype y|Y|yes|Yes to apply\ntype n|N|no|No|nO|N|<Enter> to not apply"
+    read response
+    case $response in
+      y|Y|yes|Yes)
+        echo "applying..."
+        chezmoi apply
+        ;;
+      [nN]|[nN][oO]|$'\n')
+        echo "not applying"
+        ;;
+    esac 
   fi
 }
 

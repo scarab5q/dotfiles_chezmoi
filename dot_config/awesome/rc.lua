@@ -90,7 +90,7 @@ local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
-local vi_focus     = true -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
+local vi_focus     = false -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "code"
@@ -257,6 +257,10 @@ globalkeys = my_table.join(
     awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume 0 +2%", false) end),
     awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume 0 -2%", false) end),
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute 0 toggle", false) end),
+awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("light -U 5") end),
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+        awful.util.spawn("light -A 5") end),
 
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot

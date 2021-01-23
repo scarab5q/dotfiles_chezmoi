@@ -1,6 +1,7 @@
 local g = vim.g
 local set = vim.o
 local options = setmetatable({}, {__index = { global_local = {}, window_local = {} } })
+local home = os.getenv('HOME')
 
 g.mapleader = " "
 
@@ -47,7 +48,7 @@ function options:load_options()
     virtualedit     = "block";
     inccommand      = "split";
     path            = '.,,,**';
-    tabline         = gitBranch();
+    -- tabline         = gitBranch();
     showtabline     = 2;
     completeopt     = 'menuone,noinsert,noselect,longest';
     listchars       = 'tab:░░,trail:·,space:·,extends:»,precedes:«,nbsp:⣿';
@@ -75,10 +76,6 @@ function options:load_options()
     smartindent    = true;
 
 
-
-
-
-
     lazyredraw     = true;
     titlestring    = '';
     inccommand     = 'split';
@@ -100,20 +97,21 @@ function options:load_options()
     smarttab       = true;
     wildmenu       = true;
     fdm            = marker;
+    foldmethod     = 'expr';
+    foldexpr       = y;
 
     -- sets tab settings;
 
     nocompatible   = true;
     splitbelow     = true;
 
-    fdm            = marker;
+    fdm            = 'marker';
   }
   for name,value in pairs( self.global_local ) do
     vim.o[name] = value
   end
 end
 
+-- options:load_options()
 
-  -- cscopetagorder  = 0
-  -- cscopepathcomp  = 3
-  -- cscopequickfix  = "s-,c-,d-,i-,t-,e-"
+return options

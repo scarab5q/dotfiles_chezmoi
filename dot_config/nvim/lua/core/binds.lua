@@ -11,6 +11,7 @@ local function remap(mode, key, result, opts, mod)
   opts = vim.tbl_extend('keep', opts or {}, {
       noremap = true,  
       expr = false,
+      silent = false,
     })
   vim.fn.nvim_set_keymap(mode, key, result, opts )
 end
@@ -171,9 +172,9 @@ remap( 'n', [[\\l]], [[<Plug>(easymotion-lineforward)]] )
 -- remap( 'n', [[\j]], [[j']] )
 -- remap( 'n', [[jlk]], [[<Plug>(easymotion-overwin-line)']] )
 -- remap( 'n', [[jlk]], [[<Plug>(easymotion-overwin-line)']] )
-remap( 'n', [[-j]], [[<Plug>(easymotion-j)']] )
-remap( 'n', [[\\L]], [[<Plug>(easymotion-overwin-line)']] )
-remap( 'n', [[\\w]], [[<Plug>(easymotion-overwin-w)zz']] )
+remap( 'n', [[\j]], [[<Plug>(easymotion-j)']] )
+remap( 'n', [[\L]], [[<Plug>(easymotion-overwin-line)']] )
+remap( 'n', [[\w]], [[<Plug>(easymotion-overwin-w)zz']] )
 
 vim.g.EasyMotion_startofline = 0 -- keep cursor column when JK motion let g:EasyMotion_smartcase = 1
 vim.g.hardtime_allow_different_key = 1
@@ -196,7 +197,7 @@ remap( 'c', [[$d]], [[<CR>:d<CR>``']] )
 -- remap( 'n', [[<leader>0]], [[:NERDTreeToggle %:p:h<CR>']] )
 -- remap( 'n', [[<leader>0]], [[:NERDTreeToggle %:p:h<CR>']] )
 --
-remap( 'n', [[<leader>y]], [[vinegar--']] )
+remap( 'n', [[<leader>y]], [[:Dirvish %<CR>]] )
 -- remap( 'n', [[<leader>y]], [[:NERDTreeToggle %:p:h<CR>']] )
 
 

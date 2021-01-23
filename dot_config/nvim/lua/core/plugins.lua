@@ -21,33 +21,39 @@ vim.cmd [[packadd! packer.nvim]]
 -- Only if your version of Neovim doesn't have https://github.com/neovim/neovim/pull/12632 merged
 
 local  plugins = {}
+vim.cmd [[ autocmd BufWritePost packer.lua PackerCompile ]]
 
-return require('packer').startup(function()
+return require('packer').startup({function()
 
   -- {{{ telescope
-    use {
-      'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    }
-    -- }}}
-    -- {{{ packer.nvim
-    use {'wbthomason/packer.nvim', opt = true}
-    -- }}}
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
+  -- }}}
+  
+  -- {{{ packer.nvim
+  use {'wbthomason/packer.nvim', opt = true}
+  -- }}}
+  
+  use {
+    { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+    'nvim-treesitter/nvim-treesitter-textobjects'
+  }
   use 'neovim/nvim-lspconfig'
   use 'Shougo/defx.nvim'
   use 'roxma/nvim-yarp'
   use 'roxma/vim-hug-neovim-rpc'
-  -- use 'coc-sources'Plugin 'pest-parser/pest.vim'
   use {'vlime/vlime', rtp = 'vim/'}
 
+  use 'justinmk/vim-dirvish'
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'https://github.com/kshenoy/vim-signature'
   --use 'zxqfl/tabnine-vim'
   use 'tpope/vim-repeat'
-  -- use 't9md/vim-choosewin' 
   use 'reedes/vim-pencil' -- Super-powered writing things
   -- use 'tpope/vim-abolish' -- Fancy abbreviation replacements
-  -- use 'junegunn/limelight.vim' -- Highlights only active paragraph
+  use 'junegunn/limelight.vim' -- Highlights only active paragraph
   use 'junegunn/goyo.vim' -- Full screen writing mode
   use 'reedes/vim-lexical' -- Better spellcheck mappings
   use 'reedes/vim-litecorrect' -- Better autocorrections
@@ -68,15 +74,15 @@ return require('packer').startup(function()
   -- use 'rust-lang/rust.vim'
 
   -- JavaScript {{{
-      use 'jparise/vim-graphql'
+  use 'jparise/vim-graphql'
   -- }}}
 
   -- TypeScript {{{
-      use { 'gko/yats.vim', ft = 'typescript' }
+  use { 'gko/yats.vim', ft = 'typescript' }
   -- }}}
 
   -- JSX {{{
-      use { 'MaxMEllon/vim-jsx-pretty', ft = { 'javascript', 'typescript', 'typescriptreact' } }
+  use { 'MaxMEllon/vim-jsx-pretty', ft = { 'javascript', 'typescript', 'typescriptreact' } }
   -- }}}
 
   -- Markdown
@@ -89,7 +95,6 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'terryma/vim-multiple-cursors'
   use 'Chiel92/vim-autoformat'
-  use 'rogual/neovim-dot-app'
   use 'lucc/nvimpager'
   use 'alvan/vim-closetag'
   use 'tpope/vim-vinegar'
@@ -98,35 +103,32 @@ return require('packer').startup(function()
   use 'osyo-manga/vim-anzu'
   use 'haya14busa/is.vim'
   use 'junegunn/vim-easy-align'
+  use 'mcchrish/nnn.vim'
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
   use 'majutsushi/tagbar'
   use 'roman/golden-ratio'
-  use 'itchyny/lightline.vim'
-  use 'scrooloose/nerdtree'
-  use 'tpope/vim-commentary'
+  -- use 'itchyny/lightline.vim'
+  -- use 'scrooloose/nerdtree'
   use 'tpope/vim-surround'
   use 'junegunn/fzf'  
   use 'junegunn/fzf.vim'
-  use 'Xuyuanp/nerdtree-git-plugin'
+  -- use 'Xuyuanp/nerdtree-git-plugin'
   use 'takac/vim-hardtime'
   use 'haya14busa/incsearch.vim'
-  use 'majutsushi/tagbar'
   use 'powerman/vim-plugin-AnsiEsc'
   use 'haya14busa/vim-asterisk'
   use 'tpope/vim-sensible'
   use 'junegunn/seoul256.vim'
   use 'tpope/vim-commentary'
   use 'neomake/neomake'
-  use 'sheerun/vim-polyglot'
+  -- use 'sheerun/vim-polyglot'
   use 'lervag/vimtex'
   use 'Konfekt/FastFold'
   use 'godlygeek/tabular'
   -- use 'https://github.com/masukomi/vim-markdown-folding'
-  use 'plasticboy/vim-markdown'
   use 'rafi/awesome-vim-colorschemes'
-  use 'reedes/vim-pencil'
-  use 'easymotion/vim-easymotion'
+  -- use 'easymotion/vim-easymotion'
   use {'tpope/vim-endwise', ft = { 'sh', 'bash', 'zsh', 'vim', 'markdown' }}
   use {'liuchengxu/vim-which-key', cmd =  {'WhichKey', 'WhichKey!'}  }
 
@@ -137,10 +139,17 @@ return require('packer').startup(function()
   use 'guns/vim-sexp'
   use 'tpope/vim-sexp-mappings-for-regular-people'
 
-  -- use 'Olical/conjure'
+  use 'Olical/conjure'
 
   use 'vim-syntastic/syntastic'
 
-end)
+end,
+config = {
+  display = {
+    open_fn = require"packer.util".float
+  }
+}
+
+})
 
 

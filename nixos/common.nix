@@ -80,7 +80,7 @@ in {
     ];
     config = {
       allowUnfree = true;
-      allowBroken=true;
+      allowBroken = true;
       packageOverrides = pkgs: {
         unstable = import unstableTarball { config = config.nixpkgs.config; };
         nur = import (builtins.fetchTarball

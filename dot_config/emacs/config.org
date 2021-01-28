@@ -29,7 +29,6 @@ snippet does in this file.
       (find-file file))))
 #+END_SRC
 
-
 * Settings without corresponding packages
 Clean up the UI and enhance some basic defaults defined in "C Source
 Code". The variable ~ian/indent-width~ controls the default

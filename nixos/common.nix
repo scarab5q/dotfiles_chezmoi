@@ -323,6 +323,11 @@ in {
   # Enable  the X11 windowing system.
 
   services = {
+    emacs.enable = true;
+    redshift= {
+      enable = true;
+      provider = "geoclue2";
+    };
     sshd.enable = true;
     pcscd.enable = true;
     blueman.enable = true;

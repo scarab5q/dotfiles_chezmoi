@@ -1,33 +1,16 @@
-lua require("core.init")
+"  _       _ _         _           
+" (_)_ __ (_) |___   _(_)_ __ ___  
+" | | '_ \| | __\ \ / / | '_ ` _ \ 
+" | | | | | | |_ \ V /| | | | | | |
+" |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
+                                 
 
-" if empty(glob("~/.vim/autoload/plug.vim"))
-"   execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-" endif
+" sources plugin file
+exec 'source' stdpath('config').'/plugins.vim'
 
+" sources aniseed config stuff
+lua require('aniseed.env').init()
 
+" sources core lua stuff
+lua require('core.init')
 
-" set runtimepath+=~/.vim,~/.vim/after
-" set packpath+=~/.vim
-" runtime! ~/.config/nvim/plugin/*
-" source ~/.config/nvim/plugins.vim
-" lua require 'nvim_utils'
-
-" " call initmd#init(fnamemodify($MYVIMRC, ":p:h") . "/init.md")
-" " call initmd#init(fnamemodify($MYVIMRC, ":p:h") . "/plugins.md")
-" source ~/.config/nvim/settings.vim
-
-" source ~/.config/nvim/autocommands.vim
-" source ~/.config/nvim/plugin/plugin_settings.vim
-" source ~/.config/nvim/plugin/functions.vim
-
-" source ~/.config/nvim/plugin/keymaps.vim
-" source ~/.config/nvim/after/veonim_config.vim
-
-
-" " source ~/.config/nvim/statusline.vim
-" source ~/.config/nvim/after/theme.vim
-
-" au BufReadPost *
-"          \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' 
-"          \ |   exe "normal! g`\""
-"          \ | endif

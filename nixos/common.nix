@@ -42,6 +42,9 @@ in {
   #   true;
 
   nix = {
+    allowedUsers =[      
+      "@wheel" 
+    ];
     gc = {
       automatic = true;
       dates = "03:15";

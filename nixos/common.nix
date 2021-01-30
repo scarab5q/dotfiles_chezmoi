@@ -118,6 +118,7 @@ in {
       deno
       up
       # citrix_workspace
+      qutebrowser
 
 
       wmctrl

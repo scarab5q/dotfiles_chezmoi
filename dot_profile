@@ -5,11 +5,14 @@ export PATH=~/.npm_modules/bin:$PATH
 export PATH=~/.tmux/scripts:$PATH
 
 export NPM_CONFIG_PREFIX=~/.npm-global
-export NODE_PATH=`npm root -g`
+export NODE_PATH=$(npm root -g)
 export BROWSER="firefox"
 
+export TERM="xterm-256color"
+export LANG="en_GB.UTF-8"
+
 export CSP=$(chezmoi source-path)
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export XDG_CONFIG_HOME="/home/jack/.config"
 
 export NNN_OPENER=picker
@@ -31,15 +34,15 @@ alias todo=todo.sh
 #     mkdir -p ~/scripts
 #     git clone https://github.com/clvv/fasd ~/scripts/fasd
 #     source ~/scripts/fasd/fasd
-# fi 
+# fi
 
 #
 # setup ssh-agent
 #
 
 # taken from:
-  # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login
-  # http://mah.everybody.org/docs/ssh
+# https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login
+# http://mah.everybody.org/docs/ssh
 
 # set environment variables if user's agent already exists
 

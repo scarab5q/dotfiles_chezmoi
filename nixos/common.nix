@@ -104,7 +104,9 @@ in {
     variables = {
 
       XDG_CONFIG_HOME = "~/.config";
-      EDITOR = "nvim";
+      EDITOR = "emacsclient -t";
+      TERMINAL = "alacritty";
+      ALTERNATIVE_EDITOR = "emacsclient -t";
       CMAKE_PREFIX_PATH = "${pkgs.zlib.out}:${pkgs.zlib.dev}";
       # RUST_SRC_PATH="${mozilla.latest.rustChannels.nightly.rust-src}/lib/rustlib/src/rust/src";
     };

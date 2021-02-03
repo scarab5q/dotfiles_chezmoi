@@ -37,3 +37,7 @@ set FZF_ALT_C_COMMAND "fd -t d . $HOME"
 
 set SKIM_DEFAULT_OPTIONS "--height "40%" --reverse --ansi --regex"
 set SKIM_DEFAULT_COMMAND "fd . --hidden"
+
+
+starship init fish | source
+

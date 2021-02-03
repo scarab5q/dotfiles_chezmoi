@@ -1,10 +1,12 @@
-export PATH=~/.npm-global:$PATH
-export PATH=~/scripts:$PATH
-export PATH=~/.nav_scripts:$PATH
-export PATH=~/.npm_modules/bin:$PATH
-export PATH=~/.tmux/scripts:$PATH
+export PATH=$HOME/.npm-global:$PATH
+export PATH=$HOME/scripts:$PATH
+export PATH=$HOME/.nav_scripts:$PATH
+export PATH=$HOME/.npm_modules/bin:$PATH
+export PATH=$HOME/.tmux/scripts:$PATH
+export PATH=$HOME/doom-emacs/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
-export NPM_CONFIG_PREFIX=~/.npm-global
+export NPM_CONFIG_PREFIX=$HOME/.npm-global
 export NODE_PATH=$(npm root -g)
 export BROWSER="firefox"
 
@@ -28,12 +30,12 @@ export SKIM_DEFAULT_COMMAND="fd . --hidden"
 
 alias todo=todo.sh
 
-# if [ -d ~/scripts/fasd ]; then
-#     source ~/scripts/fasd/fasd
+# if [ -d $HOME/scripts/fasd ]; then
+#     source $HOME/scripts/fasd/fasd
 # else
-#     mkdir -p ~/scripts
-#     git clone https://github.com/clvv/fasd ~/scripts/fasd
-#     source ~/scripts/fasd/fasd
+#     mkdir -p $HOME/scripts
+#     git clone https://github.com/clvv/fasd $HOME/scripts/fasd
+#     source $HOME/scripts/fasd/fasd
 # fi
 
 #
@@ -70,15 +72,14 @@ SSH_ENV="$HOME/.ssh/environment"
 #fi
 
 
-if [ -f ~/scripts/fasd/fasd ]; then
-    if ! type fasd > /dev/null; then
-        source ~/scripts/fasd/fasd
-    fi 
-else
-    mkdir -p ~/scripts
-    git clone https://github.com/clvv/fasd ~/scripts/fasd
-    source ~/scripts/fasd/fasd
-fi 
+# if [ -f $HOME/scripts/fasd/fasd ]; then
+#     if ! type fasd > /dev/null; then
+#         source $HOME/scripts/fasd/fasd
+#     fi 
+# else
+#     mkdir -p $HOME/scripts
+#     git clone https://github.com/clvv/fasd $HOME/scripts/fasd
+#     source $HOME/scripts/fasd/fasd
+# fi 
 
 
-export PATH="$HOME/.cargo/bin:$PATH"

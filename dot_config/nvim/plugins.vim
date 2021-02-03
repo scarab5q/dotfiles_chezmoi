@@ -32,12 +32,10 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " }}}
 
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'justinmk/vim-dirvish'
-Plug 'neoclide/coc.nvim', { 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-repeat'
 Plug 'reedes/vim-pencil' " Super-powered writing things

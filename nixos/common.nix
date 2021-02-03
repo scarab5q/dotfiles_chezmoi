@@ -4,7 +4,7 @@
 
 { config, lib, pkgs, dunstify, options, ... }:
 let
-  dwm-HEAD = pkgs.callPackage ./dwm {};
+  dwm-HEAD = pkgs.callPackage ./dwm { };
   tmpfsOpts = [ "nosuid" "nodev" "relatime" "size=14G" ];
   # dwm-HEAD =
   #   pkgs.callPackage
@@ -42,9 +42,7 @@ in {
   #   true;
 
   nix = {
-    allowedUsers =[      
-      "@wheel" 
-    ];
+    allowedUsers = [ "@wheel" ];
     gc = {
       automatic = true;
       dates = "03:15";
@@ -71,10 +69,11 @@ in {
     useXkbConfig = true;
   };
 
-  nixpkgs={
-    overlays =[
+  nixpkgs = {
+    overlays = [
       (import (builtins.fetchTarball {
-              url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+        url =
+          "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
       }))
 
     ];
@@ -121,7 +120,6 @@ in {
       up
       # citrix_workspace
       qutebrowser
-
 
       wmctrl
       xdotool
@@ -233,6 +231,7 @@ in {
       chezmoi
       lazygit
       bitwarden-cli
+      starship
 
       lua
       transmission
@@ -330,7 +329,7 @@ in {
 
   services = {
     emacs.enable = true;
-    redshift= {
+    redshift = {
       enable = true;
       provider = "geoclue2";
     };
@@ -468,9 +467,7 @@ in {
         # startx.enable = true;
         # xterm.enable = false;
 
-        job = {
-          logToFile = true;
-        };
+        job = { logToFile = true; };
         defaultSession = "none+bspwm";
 
         sddm = {
@@ -480,63 +477,46 @@ in {
           # defaultUser = "jack";
         };
         # sessionCommands = ''
-          # ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
+        # ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
 
         # '';
       };
 
       windowManager = {
         #dwm.enable = true;
-        awesome =
-          {
-            enable = true;
-            luaModules = [ pkgs.luaPackages.luafilesystem pkgs.luaPackages.cjson ];
-          };
-        leftwm.enable = true; 
+        awesome = {
+          enable = true;
+          luaModules =
+            [ pkgs.luaPackages.luafilesystem pkgs.luaPackages.cjson ];
+        };
+        leftwm.enable = true;
         bspwm = {
           enable = true;
           configFile = /home/jack/.config/bspwm/bspwmrc;
           sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
         };
-        # "awesome";
-        # default = "dwm";
-        # session =
-        # [ { name = "dwm";
-        #   start = ''
-        #     ${dwm-HEAD}/bin/dwm &
-        #     waitPID=$!
-        #   '';
-        # }
-        # ];
+        spectrwm.enable = true;
+        default = "spectrwm";
       };
       desktopManager = { xterm.enable = false; };
     };
   };
 
-  users={
+  users = {
     users.jack = {
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQaDUi4MGdqRLZWFyX1mWaWFdUNTTHKohYshRat+3yE jackmdenny@gmail.com"
       ];
       isNormalUser = true;
-      extraGroups = [
-        "docker"
-        "wheel"
-        "video"
-        "audio"
-        "disk"
-        "networkmanager"
-        "suid"
-      ];
+      extraGroups =
+        [ "docker" "wheel" "video" "audio" "disk" "networkmanager" "suid" ];
       shell = pkgs.fish;
 
     };
     # mutableUsers=false;
   };
 
-
-
-  programs = { 
+  programs = {
     light = { enable = true; };
     nm-applet = { enable = true; };
     dconf = { enable = true; };

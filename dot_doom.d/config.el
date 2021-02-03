@@ -26,13 +26,37 @@
 (setq doom-theme 'doom-one)
 
 ;; If you intend to use org, it is recommended you change this!
-(setq org-directory "~/org/")
+(setq org-directory "~/mynotes/org/")
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type "relative")
+
+;; (use-package! evil-colemak-basics
+;;   :after evil
+;;   :config
+;;   (setq evil-colemak-basics-rotate-t-f-j t))
+
+(use-package! undo-tree
+  :config
+  (global-undo-tree-mode))
+
+(map!
+ :desc "; is the new :" :n ";" 'evil-ex
+ :desc ": is the new ;" :n ":" 'evil-snipe-repeat
+ :desc "redo" :n "U" 'undo-tree-redo
+ :desc "undo" :n "u" 'undo-tree-undo)
+
+(cl-defun
+    is-managed-by-chezmoi
+    (&optional (file (buffer-file-name))) ;; must be a full path
+  (if (memq  'nil (member file (shell-command-to-string "chezmoi managed -i files")))))
 
 
+;; (after! evil (global-evil-colemak-basics-mode))
+
+
+;; (map! :prefix )
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

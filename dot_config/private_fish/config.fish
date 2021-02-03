@@ -13,7 +13,6 @@ if not functions -q omf
 end
 
 
-set EDITOR 'nvr -s'
 # setting language paths
 set GOPATH ~/go
 set RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src

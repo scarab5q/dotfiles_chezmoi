@@ -528,7 +528,7 @@ in {
         "networkmanager"
         "suid"
       ];
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
 
     };
     # mutableUsers=false;

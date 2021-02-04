@@ -36,7 +36,7 @@ function cFA
 end
 
 function fr
-    $argv[1] ( sk --ansi -i -c "rg set --color always -i --line-number --hidden '{} .'" --preview "preview.sh {}"  )
+    $argv[1] ( sk --ansi -i -c "rg --color=always -i --line-number --hidden '{} .'" --preview "preview.sh {}"  )
 end
 
 function fg

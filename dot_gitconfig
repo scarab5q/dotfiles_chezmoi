@@ -1,0 +1,26 @@
+[user]
+	email = jackmdenny@gmail.com
+	name = scarab5q
+[core]
+    pager = delta
+
+# define command which will be used when "nvim" is set as a merge tool
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+
+# set "nvim" as tool for merging
+[merge]
+  tool = nvim
+
+# automatically launch merge tool without displaying a prompt
+[mergetool]
+  prompt = false
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

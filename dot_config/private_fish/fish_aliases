@@ -1,3 +1,4 @@
+#!/run/current-system/sw/bin/fish
 alias ls='exa'
 alias nnl='nn -l'
 
@@ -93,3 +94,6 @@ alias pomodoro \'i3-gnome-pomodoro\'
 alias dotdrop \'/home/jack/dotdrop/dotdrop.sh\'
 alias aria \'aria2c\'
 alias antibodyr 'antibody bundle < ~/.zsh/.zsh_plugins.txt > ~/.zsh/.zsh_plugins.sh'
+alias nrsu 'sudo nixos-rebuild switch --upgrade'
+alias nrbu 'sudo nixos-rebuild build --upgrade'
+alias nrtu 'sudo nixos-rebuild test --upgrade'

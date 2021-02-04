@@ -1,4 +1,4 @@
+sourceDir = "/home/jack/.dotfiles"
 [diff]
   format = "git"
   pager = "delta"
-sourceDir = "/home/jack/.dotfiles"

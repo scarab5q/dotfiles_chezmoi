@@ -1,4 +1,4 @@
-
+#!/run/current-system/sw/bin/fish
 # function to use path extractor. A tool that extracts paths from stdout
 function pe
     path-extractor
@@ -36,7 +36,7 @@ function cFA
 end
 
 function fr
-    $argv[1] ( sk --ansi -i -c "rg --color=always -i --line-number --hidden '{} .'" --preview "preview.sh {}"  )
+    $argv[1] ( sk --ansi -i -c "rg set --color always -i --line-number --hidden '{} .'" --preview "preview.sh {}"  )
 end
 
 function fg
@@ -146,7 +146,7 @@ end
 # end
 
 # function gpush
-#     branch=(git status | grep -oP "branch (\w+)")
+#     set branch (git status | grep -oP "branch (\w+)")
 
 #     if [ ! (git log | grep -oP "$branch" ) ]
 #         git push

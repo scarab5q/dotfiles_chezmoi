@@ -29,7 +29,6 @@ source ~/.config/fish/fish_functions
 
 # allows vi bindings in the shell
 fish_vi_key_bindings
-
 set FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 set FZF_DEFAULT_OPTS "--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' --height 40% --reverse"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"

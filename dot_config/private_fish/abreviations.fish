@@ -101,8 +101,6 @@ abbr config '/usr/bin/env git --git-dir $HOME/.cfg/ --work-tree $HOME'
 abbr lazyc 'lazygit --git-dir $HOME/.cfg/ --work-tree $HOME'
 abbr zshc "clear && source ~/.zshrc"
 # abbr c 'fasd_cd -d'
-abbr pomodoro \'i3-gnome-pomodoro\'
-abbr dotdrop \'/home/jack/dotdrop/dotdrop.sh\'
 abbr n $EDITOR
 abbr nrs 'sudo nixos-rebuild switch --show-trace'
 abbr nrso 'sudo nixos-rebuild switch --show-trace --option substitute false'

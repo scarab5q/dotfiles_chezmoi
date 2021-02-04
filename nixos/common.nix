@@ -113,6 +113,7 @@ in {
     # system packages
     systemPackages = with pkgs; [
       jrnl
+      betterlockscreen
       # citrix_workspace
       # entr
       leftwm
@@ -460,25 +461,17 @@ in {
     unclutter-xfixes = { enable = true; };
 
     xserver = {
-      # startx.enable = true;
       enable = true;
 
       displayManager = {
-        # startx.enable = true;
         # xterm.enable = false;
 
         job = { logToFile = true; };
         defaultSession = "none+spectrwm";
 
-        sddm = {
-          enable = true;
-          # autoLogin.enable = true;
-          # autoLogin.user = "jack";
-          # defaultUser = "jack";
-        };
+        sddm = { enable = true; };
         # sessionCommands = ''
         # ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
-
         # '';
       };
 

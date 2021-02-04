@@ -468,7 +468,7 @@ in {
         # xterm.enable = false;
 
         job = { logToFile = true; };
-        defaultSession = "none+bspwm";
+        defaultSession = "none+spectrwm";
 
         sddm = {
           enable = true;
@@ -496,7 +496,6 @@ in {
           sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
         };
         spectrwm.enable = true;
-        default = "spectrwm";
       };
       desktopManager = { xterm.enable = false; };
     };

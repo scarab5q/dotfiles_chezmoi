@@ -8,10 +8,13 @@
                                                          
 
 # function to install fisher if it is not installed
-if not functions -q omf
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-end
+# if not functions -q omf
+#     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+# end
 
+source ~/.config/fish/fish_aliases
+source ~/.config/fish/fish_abbreviations
+source ~/.config/fish/fish_functions
 
 # setting language paths
 set GOPATH ~/go
@@ -22,8 +25,6 @@ set SCRIPTS ~/scripts
 
 set PATH  ~/.nav_scripts ~/.node_modules/bin ~/app_images "~/scripts/"$HOST"_settings" (ruby -e 'print Gem.user_dir')/bin ~/chromeDriver/phantomjs-2.1.1-linux-x86_64/ "~/orgConversion" "~/.config" "~/.cargo/bin" $GOPATH/bin $PATH "~/.rvm/bin" $SCRIPTS "~/.yarn/bin:~/.config/yarn/global/node_modules/.bin" $PATH
 
-source ~/.config/fish/fish_aliases
-source ~/.config/fish/fish_functions
 
 
 

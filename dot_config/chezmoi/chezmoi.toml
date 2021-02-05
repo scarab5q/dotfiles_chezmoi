@@ -1,5 +1,0 @@
-sourceDir = "/home/jack/.chezmoi"
-
-[diff]
-  format = "git"
-  pager = "delta"

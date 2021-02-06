@@ -1,18 +1,4 @@
-abbr ls 'exa'
-abbr nnl 'nn -l'
-abbr gsp 'cd ~/google_drive/Side_Projects/'
-abbr s3 'cd ~/google_drive/Sheffield/3rdYear/'
-abbr s3aa 'cd ~/google_drive/Sheffield/3rdYear/Advanced_Algorithms_COM3105'
-abbr s3ai 'cd ~/google_drive/Sheffield/3rdYear/Adaptive_Inteligence_COM3240'
-abbr s3s 'cd ~/google_drive/Sheffield/3rdYear/Computer_Security_and_Forensics_COM3501'
-abbr s3iw 'cd  ~/google_drive/Sheffield/3rdYear/Inteligent_Web_COM3504'
-abbr diss 'cd ~/google_drive/Sheffield/3rdYear/Dissertation'
-abbr s3ds 'cd ~/google_drive/Sheffield/3rdYear/Distributed_Systems_COM3190'
-abbr jnot 'jupyter notebook'
-# abbr notify-send 'dunstify'
 abbr config ' /run/current-system/sw/bin/git --git-dir $HOME/.cfg/ --work-tree $HOME'
-abbr ncmpcpp 'ncmpcpp -b /home/jack/.config/ncmpcpp/bindings'
-abbr randWal "wal -i ~/google_drive/Wallpaper/"
 #abbr ec "emacsclient -c -n -a ''"
 # abbr ll "ls -l | awk '{print $NF}'"
 abbr rangerConfig "~/.config/ranger"

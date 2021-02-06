@@ -43,9 +43,9 @@
 
 (map!
  :desc "; is the new :" :n ";" 'evil-ex
- :desc ": is the new ;" :n ":" 'evil-snipe-repeat
- :desc "redo" :n "U" 'undo-tree-redo
- :desc "undo" :n "u" 'undo-tree-undo)
+      :desc ": is the new ;" :n ":" 'evil-snipe-repeat
+      :desc "redo" :n "U" 'undo-tree-redo
+      :desc "undo" :n "u" 'undo-tree-undo)
 
 (cl-defun
     is-managed-by-chezmoi

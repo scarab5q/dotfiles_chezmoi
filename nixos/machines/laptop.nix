@@ -10,6 +10,7 @@ in {
     /etc/nixos/hardware-configuration.nix
     ../common.nix
   ];
+  tmpfsOpts = [ "nosuid" "nodev" "relatime" "size=14G" ];
   fileSystems."/tmp" = {
     fsType = "tmpfs";
     device = "tmpfs";

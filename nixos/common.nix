@@ -93,11 +93,7 @@ in {
   # System Environment 
 
   environment = {
-
     variables = {
-
-      XDG_CONFIG_HOME = "~/.config";
-      EDITOR = "emacsclient -t";
       TERMINAL = "alacritty";
       ALTERNATIVE_EDITOR = "emacsclient -t";
       CMAKE_PREFIX_PATH = "${pkgs.zlib.out}:${pkgs.zlib.dev}";
@@ -323,7 +319,10 @@ in {
   # Enable  the X11 windowing system.
 
   services = {
-    emacs.enable = true;
+    emacs = {
+      enable = true;
+      defaultEditor = true;
+    };
     redshift = {
       enable = true;
       provider = "geoclue2";

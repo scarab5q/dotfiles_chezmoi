@@ -34,11 +34,10 @@ in {
         enable = true;
         buttonsMap = [ 1 2 3 ]; # Mouse button 3 is two-finger tap by default...
         palmDetect = true;
-        # disableWhileTyping = true;
+        disableWhileTyping = true;
         horizontalScroll = true;
         twoFingerScroll = true;
       };
-
     };
   };
 }

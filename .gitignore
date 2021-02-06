@@ -2,5 +2,6 @@
 dot_config/nvim/.nvimlog
 dot_config/rofi/.keep
 dot_config/nvim/dot_netrwhist
-/~/.cache/zsh/fasd-init-cache
 /tags
+~
+

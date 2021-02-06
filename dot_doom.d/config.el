@@ -53,8 +53,15 @@
   (if (memq  'nil (member file (shell-command-to-string "chezmoi managed -i files")))))
 
 
-;; (after! evil (global-evil-colemak-basics-mode))
+(use-package chezmoi
+  :load-path "chezmoi")
 
+(map!
+ :leader
+ (:prefix-map ("d" . "dotfiles")
+  :desc "chezmoi find" "f" 'chezmoi|find
+  :desc "chezmoi write" "w" 'chezmoi|write
+  :desc "chezmoi git status" "g" 'chezmoi|magit-status))
 
 ;; (map! :prefix )
 ;; Here are some additional functions/macros that could help you configure Doom:

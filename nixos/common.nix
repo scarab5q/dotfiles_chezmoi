@@ -5,7 +5,6 @@
 { config, lib, pkgs, dunstify, options, ... }:
 let
   dwm-HEAD = pkgs.callPackage ./dwm { };
-  tmpfsOpts = [ "nosuid" "nodev" "relatime" "size=14G" ];
   # dwm-HEAD =
   #   pkgs.callPackage
   #   ./dwm
@@ -30,11 +29,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.loader.efi.canTouchEfiVariables = true;
-  fileSystems."/tmp" = {
-    fsType = "tmpfs";
-    device = "tmpfs";
-    options = tmpfsOpts;
-  };
 
   networking.networkmanager.enable = true;
 

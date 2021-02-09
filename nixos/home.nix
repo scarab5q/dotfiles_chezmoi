@@ -1,8 +1,7 @@
 { pkgs ? import <nixpkgs> { }, lib ? pkgs.lib, config ? pkgs.config
 , options ? pkgs.options, ... }:
 
-# let appConfigs = import ./appConfigs { };
-in {
+{
   programs.home-manager.enable = true;
   programs.home-manager.path =
     "https://github.com/rycee/home-manager/archive/master.tar.gz";

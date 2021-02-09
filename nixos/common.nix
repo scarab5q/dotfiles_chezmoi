@@ -502,6 +502,10 @@ in {
   };
 
   programs = {
+    ssh = {
+      startAgent.enable = true;
+      askPassword = true;
+    };
     light = { enable = true; };
     nm-applet = { enable = true; };
     dconf = { enable = true; };

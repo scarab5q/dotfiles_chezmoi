@@ -6,7 +6,7 @@ in {
   programs.home-manager.enable = true;
   programs.home-manager.path =
     "https://github.com/rycee/home-manager/archive/master.tar.gz";
-  home.stateVersion = "18.09";
+  home.stateVersion = "20.09";
 
   xdg.enable = true;
 

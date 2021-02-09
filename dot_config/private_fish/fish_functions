@@ -209,21 +209,21 @@ function ccd
   cd (chezmoi source-path)
 end
 
-function cef
-  set file (chezmoi managed -i files | sed "s/.*chezmoi//g" |fzf )
-  if [ -n ${file+x} ]; then
-    chezmoi edit $file
-    echo "do you want to chezmoi apply?\ntype y|Y|yes|Yes to apply\ntype n|N|no|No|nO|N|<Enter> to not apply"
-    read response
-    switch $response in
-    case y|Y|yes|Yes
-        echo "applying..."
-        chezmoi apply
-    case[nN]|[nN][oO]|$'\n'
-        echo "not applying"
-    end
-  end
-end
+# function cef
+#   set file (chezmoi managed -i files | sed "s/.*chezmoi//g" |fzf )
+#   if [ -n ${file+x} ]; then
+#     chezmoi edit $file
+#     echo "do you want to chezmoi apply?\ntype y|Y|yes|Yes to apply\ntype n|N|no|No|nO|N|<Enter> to not apply"
+#     read response
+#     switch $response
+#     case y Y yes Yes
+#         echo "applying..."
+#         chezmoi apply
+#     case [nN] [nN] [oO] '\n'
+#         echo "not applying"
+#     end
+#   end
+# end
 
 function e
   if [ $# -eq 0 ]; then
@@ -234,24 +234,24 @@ function e
   end
 end
 
-function nixify
-  if [ ! -e ./.envrc ]; then
-    echo "use nix" > .envrc
-    direnv allow
-  end
-  if [ ! -e default.nix ]; then
-    cat > default.nix <<'EOF'
-with import <nixpkgs> {};
-stdenv.mkDerivation {
-  name = "env";
-  buildInputs = [
-    bashInteractive
-  ];
-}
-EOF
-    ${EDITOR:-vim} default.nix
-  end
-end
+# function nixify
+#   if [ ! -e ./.envrc ]; then
+#     echo "use nix" > .envrc
+#     direnv allow
+#   end
+#   if [ ! -e default.nix ]; then
+#     cat > default.nix <<'EOF'
+# with import <nixpkgs> {};
+# stdenv.mkDerivation {
+#   name = "env";
+#   buildInputs = [
+#     bashInteractive
+#   ];
+# }
+# EOF
+#     ${EDITOR:-vim} default.nix
+#   end
+# end
 
 function ftpane
   local panes current_window current_pane target target_window target_pane
@@ -345,31 +345,19 @@ function gclone
 end
 
 
-function ea 
-    if [  -eq 0 ]; then
-        set file  ( fd -t f --hidden | sk) || return 1
-        $EDITOR $file
-    elif [ $argv[1] = '-f' ]; then
-        set file  ( fd -t f --hidden | fzy) || return 1
-        $EDITOR $file
-    end
-end
+# function ea 
+#     if [  -eq 0 ]; then
+#         set file  ( fd -t f --hidden | sk) || return 1
+#         $EDITOR $file
+#     elif [ $argv[1] = '-f' ]; then
+#         set file  ( fd -t f --hidden | fzy) || return 1
+#         $EDITOR $file
+#     end
+# end
 
-function ef
-    $EDITOR (fd --type f --hidden | sk)
-end
 
-function ez 
-    emacsclient -c $argv[1] &
-end
 
-function et 
-    emacsclient -t $argv[1]
-end
 
-function eb 
-    emacsbare $argv[1]
-end
 
 function mcd 
     mkdir -p $argv[1]

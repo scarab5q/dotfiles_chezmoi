@@ -6,9 +6,7 @@ xclip &
 volumeicon &
 {{ end }}
 
-{{- if ne .chezmoi.hostname "nix-laptop-box" }}
-~/scripts/screen_setup.sh
+~/scripts/screen_setup
 wal -i ~/google_drive/Wallpaper/
-{{- end}}
 
 insync start  & 

@@ -43,24 +43,21 @@
 
 (map!
  :desc "; is the new :" :n ";" 'evil-ex
-      :desc ": is the new ;" :n ":" 'evil-snipe-repeat
-      :desc "redo" :n "U" 'undo-tree-redo
-      :desc "undo" :n "u" 'undo-tree-undo)
-
-(cl-defun
-    is-managed-by-chezmoi
-    (&optional (file (buffer-file-name))) ;; must be a full path
-  (if (memq  'nil (member file (shell-command-to-string "chezmoi managed -i files")))))
+ :desc ": is the new ;" :n ":" 'evil-snipe-repeat
+ :desc "redo" :n "U" 'undo-tree-redo
+ :desc "undo" :n "u" 'undo-tree-undo)
 
 
-(use-package chezmoi
-  :load-path "chezmoi")
+
+(use-package! chezmoi
+  :load-path "lisp")
+
 
 (map!
  :leader
- (:prefix-map ("d" . "dotfiles")
+ (:prefix ("d" . "dotfiles")
   :desc "chezmoi find" "f" 'chezmoi|find
-  :desc "chezmoi write" "w" 'chezmoi|write
+  :desc "chezmoi write" "w" 'chezmoi-write-current-file
   :desc "chezmoi git status" "g" 'chezmoi|magit-status))
 
 ;; (map! :prefix )

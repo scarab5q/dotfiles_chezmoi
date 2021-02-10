@@ -9,6 +9,27 @@
 (setq user-full-name "Jack"
       user-mail-address "jackmdenny@gmail.com")
 
+;; defaults taken from
+;; https://tecosaur.github.io/emacs-config/config.html#rudimentary-configuration
+
+(setq-default
+ delete-by-moving-to-trash t                      ; Delete files to trash
+ window-combination-resize t                      ; take new window space from all other windows (not just current)
+ x-stretch-cursor t)                              ; Stretch cursor to the glyph width
+
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      truncate-string-ellipsis "…")               ; Unicode ellispis are nicer than "...", and also save /precious/ space
+
+(display-time-mode 1)                             ; Enable time in the mode-line
+
+(if (equal "Battery status not available"
+           (battery))
+    (display-battery-mode 1)                        ; On laptops it's nice to know how much power you have
+  (setq password-cache-expiry nil))               ; I can trust my desktops ... can't I? (no battery = desktop)
+
+(global-subword-mode 1)                           ; Iterate through CamelCase words
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;

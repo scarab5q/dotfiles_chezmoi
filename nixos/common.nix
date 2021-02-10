@@ -19,6 +19,7 @@ let
   # };
 in {
 
+  location.provider = "geoclue2";
   imports = [ # Include the results of the hardware scan.
     # "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
     # "./home.nix"
@@ -323,10 +324,7 @@ in {
       enable = true;
       defaultEditor = true;
     };
-    redshift = {
-      enable = true;
-      provider = "geoclue2";
-    };
+    redshift = { enable = true; };
     sshd.enable = true;
     pcscd.enable = true;
     blueman.enable = true;

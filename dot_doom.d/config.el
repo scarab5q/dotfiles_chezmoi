@@ -80,7 +80,9 @@
   :desc "chezmoi write" "w" 'chezmoi-write-current-file
   :desc "chezmoi git status" "g" 'chezmoi|magit-status))
 
-;; (map! :prefix )
+(map!
+ :leader
+ :desc "M-x" :n  "SPC" 'execute-extended-command)
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

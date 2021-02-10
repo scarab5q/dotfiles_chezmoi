@@ -89,6 +89,7 @@ in {
           aria2
           bear
           dunst
+          trash-cli
           entr
           exa
           feh

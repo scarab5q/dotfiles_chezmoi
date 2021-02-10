@@ -69,8 +69,8 @@
 
 
 
-(use-package! chezmoi
-  :load-path "lisp")
+(load! "lisp/chezmoi" doom-private-dir)
+
 
 
 (map!

@@ -12,9 +12,9 @@
 #     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
 # end
 
-source ~/.config/fish/fish_aliases
-source ~/.config/fish/fish_abbreviations
-source ~/.config/fish/fish_functions
+source ~/.config/fish/aliases.fish
+source ~/.config/fish/abbreviations.fish
+source ~/.config/fish/functions.fish
 
 # setting language paths
 set GOPATH ~/go

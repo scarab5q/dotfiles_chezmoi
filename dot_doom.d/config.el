@@ -44,15 +44,14 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-vibrant)
 
 ;; If you intend to use org, it is recommended you change this!
-(setq org-directory "~/mynotes/org/")
+(setq org-directory "~/my_notes/org/")
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
-(setq display-line-numbers-type "relative")
-
+(setq display-line-numbers-type 'relative)
 ;; (use-package! evil-colemak-basics
 ;;   :after evil
 ;;   :config

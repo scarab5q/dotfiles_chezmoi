@@ -105,8 +105,8 @@ in {
     systemPackages = with pkgs; [
       jrnl
       betterlockscreen
-      # citrix_workspace
-      # entr
+      xlockmore
+      entr
       leftwm
       deno
       up

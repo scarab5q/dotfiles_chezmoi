@@ -18,7 +18,8 @@
        ;;japanese
 
        :completion
-       company           ; the ultimate code completion backend
+       (company
+        +childframe)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy               ; a search engine for love and life
@@ -45,7 +46,8 @@
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
        pretty-code       ; replace bits of code with pretty symbols
-       ;; tabs              ; an tab bar for Emacs
+       tabs              ; an tab bar for Emacs
+
        treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
@@ -65,32 +67,18 @@
        ;; objed             ; text object editing for the innocent
        parinfer          ; turn lisp into python, sort of
        rotate-text       ; cycle region at point between text candidates
-       (snippets          ; my elves. They type so I don't have to
-        +yasnippet
-        +auto-yasnippet
-        +doom-snippets)
-
+       snippets          ; my elves . They type so I don't have to
        word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       (dired
-        +all-the-icons-dired)             ; making dired pretty [functional]
+       (dired            ; making dired pretty [functional]
+        +ranger
+        +icons)
        electric          ; smarter, keyword-based electric-indent
-       (ibuffer           ; interactive buffer management
-        +ibuffer-projectile
-        +ibuffer-vc)
+       ibuffer           ; interactive buffer management
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
-       (eshell            ; a consistent, cross-platform shell (WIP)
-        +eshell-z
-        +esh-help
-        +shrink-path
-        +eshell-did-you-mean
-        + =:completion company=
-        +fish-completion
-        +bash-completion)
-
        eshell            ; a consistent, cross-platform shell (WIP)
        shell             ; a terminal REPL for Emacs
        vterm             ; another terminals in Emacs
@@ -100,6 +88,7 @@
        syntax              ; tasing you for every semicolon you forget
        spell             ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
+
        :tools
        ;;ansible
        debugger          ; FIXME stepping through code, to help you add bugs
@@ -110,10 +99,12 @@
        (eval +overlay)     ; run code, run (also, repls)
        gist              ; interacting with github gists
        (lookup           ; helps you navigate your code and documentation
-        +docsets)        ; ...or in Dash docsets locally
+        +dictionary
+        +docsets)        ; . ..or in Dash docsets locally
        lsp
        ;;macos             ; MacOS-specific commands
-       magit             ; a git porcelain for Emacs
+       (magit
+        +forge)             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        pass              ; password manager for nerds
        pdf               ; pdf enhancements
@@ -124,7 +115,7 @@
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :lang
-       ;;agda              ; types of types of types of types...
+       ;;agda              ; types of types of types of types.           . .
        ;;assembly          ; assembly for fun or debugging
        cc                ; C/C++/Obj-C madness
        (clojure
@@ -150,7 +141,10 @@
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       latex             ; writing papers in Emacs has never been so fun
+       (latex
+        +latexmk
+        +cdlatex
+        +fold)             ; writing papers in Emacs has never been so fun
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
@@ -174,18 +168,19 @@
         +lsp)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        racket            ; a DSL for DSLs
-       ;;rest              ; Emacs as a REST client
+       rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;ruby              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        (rust
-        +lsp)              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+        +lsp)              ; Fe2O3                                       . unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       ;;scheme            ; a fully conniving family of lisps
+       scheme            ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor
-       ;;solidity          ; do you need a blockchain? No.
+       ;;solidity          ; do you need a blockchain? No                .
        ;;swift             ; who asked for emoji variables?
-       ;;terra             ; Earth and Moon in alignment for performance.
+       ;;terra             ; Earth and Moon in alignment for performance .
        web               ; the tubes
+       yaml
 
        :email
        (mu4e +gmail)
@@ -196,8 +191,9 @@
        calendar
        ;;irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
-       ;;twitter           ; twitter client https://twitter.com/vnought
+       ;;twitter           ; twitter client https://twitter . com/vnought
 
        :config
        ;; literate
+
        (default +bindings +smartparens))

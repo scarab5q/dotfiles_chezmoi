@@ -21,7 +21,12 @@
        company           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ivy               ; a search engine for love and life
+       (ivy               ; a search engine for love and life
+        +fuzzy
+        +prescient
+        +childframe
+        +icons)
+
 
        :ui
        deft              ; notational velocity for Emacs

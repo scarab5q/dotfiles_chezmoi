@@ -57,6 +57,9 @@
 ;;   :config
 ;;   (setq evil-colemak-basics-rotate-t-f-j t))
 
+;; Deft
+(setq deft-directory "~/my_notes/deft")
+
 (use-package! undo-tree
   :config
   (global-undo-tree-mode))

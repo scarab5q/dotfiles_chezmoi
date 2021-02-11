@@ -11,7 +11,7 @@ insync start
 
 git clone git@github.com:scarab5q/my_notes.git ~/my_notes
 
-{{if eq .chezmio.os "linux" }}
+{{if eq .chezmoi.os "linux" }}
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 

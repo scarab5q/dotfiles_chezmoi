@@ -133,7 +133,8 @@ in {
       yubikey-manager
       yubikey-personalization
       yubikey-personalization-gui
-      emacs
+      ((emacsPackagesNgGen emacs).emacsWithPackages
+        (epkgs: [ epkgs.emacs-libvterm ]))
       xtitle
       starship
       nixfmt

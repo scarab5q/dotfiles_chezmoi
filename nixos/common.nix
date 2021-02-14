@@ -114,6 +114,7 @@ in {
       entr
       leftwm
       deno
+      sqlite
       up
       # citrix_workspace
       qutebrowser
@@ -138,8 +139,7 @@ in {
       yubikey-manager
       yubikey-personalization
       yubikey-personalization-gui
-      ((emacsPackagesNgGen emacs).emacsWithPackages
-        (epkgs: [ epkgs.emacs-libvterm ]))
+      ((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [ epkgs.vterm ]))
       xtitle
       starship
       nixfmt

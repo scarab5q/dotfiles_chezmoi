@@ -1,17 +1,18 @@
-
+{{- if ne .chezmoi.osRelease.id "nixos" }}
 chsh -s $(which fish)
+{{end}}
 
 git clone https://github.com/hlissner/doom-emacs ~/doom-emacs
 ~/doom-emacs/bin/doom install
 
-nix-env -i insync
 insync start
 
 # TODO make vim plug auto install
 
 git clone git@github.com:scarab5q/my_notes.git ~/my_notes
 
-{{ if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "linux" }}
+
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 

@@ -52,6 +52,9 @@
                                         ;(package! builtin-package :recipe (:branch "develop"))
 
 
+(package! s)
+(package! f)
+(package! dash.el)
 (package! undo-tree)
 ;; (package! chezmoi.el
 ;;   :recipe)

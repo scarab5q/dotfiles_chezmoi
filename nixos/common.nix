@@ -94,6 +94,11 @@ in {
   # System Environment 
 
   environment = {
+    shellInit = ''
+      export GPG_TTY="$(tty)"
+      gpg-connect-agent /bye
+      export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+    '';
     variables = {
       TERMINAL = "alacritty";
       ALTERNATIVE_EDITOR = "emacsclient -t";
@@ -146,6 +151,10 @@ in {
       bat
       go-dependency-manager
       go2nix
+      gnupg
+      pinentry-curses
+      pinentry-qt
+      paperkey
       gnupg1compat
       pass
       fpp
@@ -321,13 +330,15 @@ in {
   # Enable  the X11 windowing system.
 
   services = {
+
+    pcscd.enable = true;
+    udev.packages = with pkgs; [ yubikey-personalization ];
     emacs = {
       enable = true;
       defaultEditor = true;
     };
     redshift = { enable = true; };
     sshd.enable = true;
-    pcscd.enable = true;
     blueman.enable = true;
     picom.enable = true;
 
@@ -440,7 +451,6 @@ in {
     # enable = true;
     # provider = "geoclue2";
     # };
-    udev.packages = with pkgs; [ yubikey-personalization ];
     locate = {
       enable = true;
       interval = "hourly";
@@ -501,8 +511,14 @@ in {
   };
 
   programs = {
-    ssh = { startAgent = true; };
+    browserpass.enable = true;
+    # ssh = { startAgent = true; };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     light = { enable = true; };
+
     nm-applet = { enable = true; };
     dconf = { enable = true; };
   };

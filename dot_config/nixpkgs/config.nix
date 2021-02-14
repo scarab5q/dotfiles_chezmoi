@@ -66,58 +66,88 @@ in {
         paths = [
           racket
           # vscodeAndExtensions
-          ocaml
-          ocamlPackages.utop
-          ocamlPackages.base
-          tree
-          shfmt
-          gtop
-          htop
-          # for kak completion
-          jq
-          gocode
-          gogetdoc
-          pipenv
-          direnv
-          zig
+
+          # Ocaml
           ocaml
           ocamlPackages.findlib
+          ocamlPackages.utop
+          ocamlPackages.base
+
+          # clojure
+          clojure
+          clojure-lsp
+          leiningen
+
+          # go
+          go
+          gotools
+          gopls
+          gogetdoc
+          dep
+
+          # js
+          nodejs-12_x
+          nodejs
+          yarn
+          nodePackages.create-react-app
+
+          # C/C++
+          clang
+          ccls
+          cmake
+
+          # zig
+          zig
+
+          shfmt
+          gtop
+
+          # kakoune
+          kakoune
+          jq # needed for completion
+
+          # python
+          pipenv
+          python-stuff
+
+          # cli utils
+          light
+          pavucontrol
+          htop
+          git-hub
+          nnn
+          direnv
+          feh
           sd
           up
+          trash-cli
+          entr
+          exa
+          lf
+          killall
+          spotify-tui
+
+          # wm stuff
+          rofi-unwrapped
+          rofi
+          lemonbar
+          xorg.libX11
+          libdbusmenu-glib
+
           acpi
           anki
           aria2
           bear
           dunst
-          trash-cli
-          entr
-          exa
-          feh
           rustup
           godot
-          htop
-          git-hub
-          kakoune
-          killall
-          lemonbar
-          lf
-          libdbusmenu-glib
           libreoffice
-          xorg.libX11
-          light
           jrnl
-          neovim-remote
           tree
           networkmanagerapplet
-          nnn
-          nodejs-12_x
-          nodePackages.create-react-app
           ntfs3g
-          pavucontrol
           # qutebrowser
           ripgrep
-          rofi-unwrapped
-          rofi
           rtorrent
           taskwarrior
           todo-txt-cli
@@ -126,12 +156,9 @@ in {
           tectonic
           qbittorrent
           zathura
-          joplin
           joplin-desktop
           nixpkgs-fmt
           jupyter
-          nodejs # for coc.nvim
-          yarn # for coc.nvim
           emscripten
           # qt5.full
           asciinema
@@ -141,15 +168,10 @@ in {
           # nixpkgs dependency management
           niv
           # neovim-remote
-          go
-          dep
-          gotools
-          kakoune
           # cargo
           # rustc
           figlet
           unzip
-          python-stuff
         ];
         pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
         extraOutputsToInstall = [ "man" "doc" ];

@@ -1,8 +1,5 @@
 #!/run/current-system/sw/bin/fish
-alias ls='exa'
-alias nnl='nn -l'
 
-alias fishc
 alias gsp 'cd ~/google_drive/Side_Projects/'
 alias s3 'cd ~/google_drive/Sheffield/3rdYear/'
 alias s3aa 'cd ~/google_drive/Sheffield/3rdYear/Advanced_Algorithms_COM3105'

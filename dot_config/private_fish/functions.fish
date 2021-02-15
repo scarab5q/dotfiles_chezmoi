@@ -127,9 +127,6 @@ end
 #     $argv[1] (exa -a1r | sk --ansi)
 # }
 
-ll () {
-    exa -l | awk '{print $NF}'
-}
 
 
 

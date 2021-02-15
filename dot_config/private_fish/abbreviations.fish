@@ -1,6 +1,5 @@
 abbr config ' /run/current-system/sw/bin/git --git-dir $HOME/.cfg/ --work-tree $HOME'
 #abbr ec "emacsclient -c -n -a ''"
-# abbr ll "ls -l | awk '{print $NF}'"
 abbr rangerConfig "~/.config/ranger"
 abbr nvimConfig "~/.SpaceVim.d/init.toml"
 abbr i3config "~/.config/i3/config"
@@ -74,7 +73,6 @@ abbr lsa "ls -a"
 abbr k 'kak'
 abbr aria \'aria2c\'
 abbr antibodyr 'antibody bundle < ~/.zsh/.zsh_plugins.txt > ~/.zsh/.zsh_plugins.sh'
-abbr nrs
 
 abbr "\$" ""
 abbr bsprefresh '~/.config/bspwm/bspwmrc'
